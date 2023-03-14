@@ -1,0 +1,33 @@
+
+
+$(function(){
+	// 変数に要素を入れる
+	var open = $('.modal-open'),
+		close = $('.modal-close'),
+		container = $('.modal-container'),
+		studyLang = $('.study__lang__list');
+
+	//開くボタンをクリックしたらモーダルを表示する
+	open.on('click',function(){	
+		container.addClass('active');
+		studyLang.addClass('active');
+		return false;
+	});
+
+	//閉じるボタンをクリックしたらモーダルを閉じる
+	close.on('click',function(){	
+		container.removeClass('active');
+		studyLang.removeClass('active');
+	});
+
+	//モーダルの外側をクリックしたらモーダルを閉じる
+	$(document).on('click',function(e) {
+		if(!$(e.target).closest('.modal-body').length) {
+			container.removeClass('active');
+			studyLang.removeClass('active');
+		}
+	});
+});
+
+
+
