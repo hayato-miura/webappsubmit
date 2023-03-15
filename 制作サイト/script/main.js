@@ -15,9 +15,9 @@ var barChartData = {
     ],
   };
   
-  var complexChartOption = {
-    responsive: true,
-  };
+  // var complexChartOption = {
+  //   responsive: true,
+  // };
   
   window.onload = function() {
     ctx = document.getElementById("canvas").getContext("2d");
@@ -25,7 +25,8 @@ var barChartData = {
       type: 'bar',
       data: barChartData,
       // options: complexChartOption
-      options :{
+      options :{ 
+        responsive: true,
         scales: {
           xAxes: [{
             display: true,
@@ -79,14 +80,14 @@ var barChartData = {
     },
     options: {
       title: {
-        display: true,
+        display: false,
 
         //グラフタイトル
       },
       legend:{
         display:false
       },
-      responsive: false,
+      responsive: true,
       // tooltips: {
       //   callbacks: {
       //     label: function (tooltipItem, data) {
@@ -132,14 +133,14 @@ var barChartData = {
     },
     options: {
       title: {
-        display: true,
+        display: false,
 
         //グラフタイトル
       },
       legend:{
         display:false
       },
-      responsive: false,
+      responsive: true,
       // tooltips: {
       //   callbacks: {
       //     label: function (tooltipItem, data) {

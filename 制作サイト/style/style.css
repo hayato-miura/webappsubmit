@@ -143,6 +143,7 @@ header{
 .content-area{
     display: grid;
     flex: 1;
+    grid-template-columns: repeat(2, 1fr);
 }
 .content{
     flex: 1;
@@ -446,6 +447,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     margin: 10px;
     font-weight: bold;
     text-align: left;
+    margin-left: 20px;
 }
 .lang__and__contents__box{
     display: flex;
@@ -604,8 +606,85 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 
 
 /* SPスマホ版のサイト作り */
-@media (min-width: 768px){
+@media  (max-width:600px){
+    /* 学習時間3項目と学習言語、学習コンテンツの配置 */
+
     .content-area {
-      grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        flex: 1;
+        grid-template-columns: auto;
     }
-  }
+    .content {
+        flex: 1;
+        background-color: #ededf0;
+        text-align: center;
+        margin-top: 20px;
+        height: auto;
+    }
+    /* 学習時間3項目 */
+    .study__hour__box {
+        background-color: white;
+        border-radius: 21px;
+        width: 96px;
+        height: auto;
+    }
+    .study__hour {
+        display: flex;
+        justify-content: unset;
+        gap: 20px;
+    }
+    /* 棒グラフ */
+    .study__hour__graph {
+        background-color: white;
+        border-radius: 21px;
+        margin-top: 20px;
+        width: fit-content;
+        height: fit-content;
+    }
+    .container {
+        width: 100%;
+        height: auto;
+    }
+    .container{
+        width: fit-content;
+    }
+    
+    /* 学習言語と学習コンテンツ */
+    .contents__box {
+        background-color: white;
+        border-radius: 21px;
+        width: 170px;
+    }
+
+    /* 学習言語 */
+    .study__lang__list {
+        position: relative;
+        display: inline-block;
+        width: fit-content;
+    }
+
+
+    #myDoughnutChart2{
+        width: 100px;
+    }
+
+
+    /* モーダル */
+    .comment__form {
+        background-color: #ededf0;
+        width: auto;
+    }
+    .modal-close {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: -48px;
+        right: -11px;
+        width: 40px;
+        height: 40px;
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
+    }
+}
