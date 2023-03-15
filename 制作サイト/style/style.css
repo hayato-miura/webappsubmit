@@ -20,6 +20,10 @@ main{
     margin: 0;
     right: 0px;
 }
+*{
+    font-family: 'BIZ UDPGothic', sans-serif;
+font-family: 'Noto Sans JP', sans-serif;
+}
 
 
 
@@ -83,9 +87,11 @@ header{
 }
 .modal__left{
     background-color: white;
+    width: 50%;
 }
 .modal__right{
     background-color: white;
+    width: 50%;
 }
 .bottomside{
     display: flex;
@@ -106,10 +112,10 @@ header{
 /*モーダル枠の指定*/
 .modal-body{
 	position: relative;
-	display: inline-block;
-	vertical-align: middle;
-	max-width: 500px;
-	width: 90%;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 784px;
+    width: 90%;
 }
 /*モーダルを閉じるボタンの指定*/
 .modal-close{
@@ -130,6 +136,7 @@ header{
 	background: #fff;
 	text-align: left;
 	padding: 30px;
+    border-radius: 21px;
 }
 
 /* コンテンツ */
@@ -138,18 +145,24 @@ header{
     flex: 1;
 }
 .content{
-    flex:1;
+    flex: 1;
     background-color: #ededf0;
     text-align: center;
     margin: 20px 10px 0 10px;
-    height: 527px;
+    height: 453px;
 }
 .study__lang__list.active{
     display: none;
 }
+.study__content__list.active{
+    display: none;
+}
 
 /* 学習日カレンダー */
-
+.modal__subheading{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
 /* 学習日カレンダーのlabelタグ */
 .date-edit {
@@ -277,11 +290,21 @@ input[type="date"]::-webkit-calendar-picker-indicator{
         }
 
 /* モーダルの右側 */
+.study__time{
+    margin: 10px;
+}
 /* Twitter用のコメント */
 .comment__form{
     background-color: #ededf0;
     width: fit-content;
 }
+.study__twitter__comment{
+    margin: 10px;
+}
+.twitter__share{
+    margin: 10px;
+}
+
 
 /* モーダルの下側 */
 
@@ -292,6 +315,8 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.2s ease-out;
+    padding: 15px 71px;
+    color: white;
   }
   .button::after {
     content: '';
@@ -384,7 +409,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     height: 120px;
 }
 .study__hour__container{
-    margin: 31px;
+    margin: 15px;
 }
 /* テキストに対して */
 .study__hour__subheading{
@@ -393,22 +418,35 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 }
 .study__hour__number{
     font-weight: bold;
+    font-size: 43px;
 }
 .study__hour__unit{
     color: grey;
 }
 
 /* 学習時間グラフ */
+.container{
+    width: 100%;
+    height: 312px;
+}
 .study__hour__graph{
     background-color: white;
     border-radius: 21px;
     margin-top: 20px;
 }
-
+.bar{
+    display: block;
+    width: 511px;
+    height: 312px;
+}
 
 
 /* 学習言語と学習コンテンツ */
-
+.subheading{
+    margin: 10px;
+    font-weight: bold;
+    text-align: left;
+}
 .lang__and__contents__box{
     display: flex;
     gap: 20px;
@@ -478,6 +516,62 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 }
 
 
+/* 学習コンテンツ勉強 */
+.study__lang__list{
+    position: relative;
+    width: fit-content;
+}
+.study__lang__list li{
+    margin-left: 20px;
+}
+.study__content__list li:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #0345ec;
+    border-radius: 50%;
+    /* z-index: 0; */
+    transform: translateX(-12px);
+}
+.study__content__list li:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #0f71bd;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translateX(-12px);
+}
+.study__content__list li:nth-child(3)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #20bdde;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translateX(-12px);
+}
+.study__content__list li:nth-child(4)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #3ccefe;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translateX(-12px);
+}
 
 /* ドーナツグラフ */
 
@@ -492,7 +586,18 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     text-align: center;
     background-color: #eee;
 }
-
+.main__data{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.data__button{
+    color: #0f71bd;
+    font-weight: bold;
+}
+.data__button:hover{
+    color: #0345ec;
+}
 
 
 

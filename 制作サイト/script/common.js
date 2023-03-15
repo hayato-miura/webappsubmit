@@ -6,11 +6,13 @@ $(function(){
 		close = $('.modal-close'),
 		container = $('.modal-container'),
 		studyLang = $('.study__lang__list');
+		studyContent = $('.study__content__list');
 
 	//開くボタンをクリックしたらモーダルを表示する
 	open.on('click',function(){	
 		container.addClass('active');
 		studyLang.addClass('active');
+		studyContent.addClass('active');
 		return false;
 	});
 
@@ -18,6 +20,7 @@ $(function(){
 	close.on('click',function(){	
 		container.removeClass('active');
 		studyLang.removeClass('active');
+		studyContent.removeClass('active');
 	});
 
 	//モーダルの外側をクリックしたらモーダルを閉じる
@@ -25,6 +28,7 @@ $(function(){
 		if(!$(e.target).closest('.modal-body').length) {
 			container.removeClass('active');
 			studyLang.removeClass('active');
+			studyContent.removeClass('active');
 		}
 	});
 });

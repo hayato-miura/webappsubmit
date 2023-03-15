@@ -113,71 +113,57 @@ var barChartData = {
   });
 
 
-  // プラグインの関数定義
-//   var dataLabelPlugin = {
-//     afterDatasetsDraw: function (chart, easing) {
-//       // To only draw at the end of animation, check for easing === 1
-//       var ctx = chart.ctx;
-
-//       chart.data.datasets.forEach(function (dataset, i) {
-//           var meta = chart.getDatasetMeta(i);
-//           if (!meta.hidden) {
-//               meta.data.forEach(function (element, index) {
-//                   // Draw the text in black, with the specified font
-//                   ctx.fillStyle = 'rgb(0, 0, 0)';
-
-//                   var fontSize = 16;
-//                   var fontStyle = 'normal';
-//                   var fontFamily = 'Helvetica Neue';
-//                   ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
-
-//                   // Just naively convert to string for now
-//                   var dataString = dataset.data[index].toString();
-
-//                   // Make sure alignment settings are correct
-//                   ctx.textAlign = 'center';
-//                   ctx.textBaseline = 'middle';
-
-//                   var padding = 5;
-//                   var position = element.tooltipPosition();
-//                   ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
-//               });
-//           }
-//       });
-//   }
-// };
-
-
   var ctx = document.getElementById("myDoughnutChart2");
   var myDoughnutChart2= new Chart(ctx, {
     type: 'doughnut',
     data: {
-      labels: ["賛成", "反対", "わからない", "未回答"], //データ項目のラベル
+      labels: ["ドットインストール", "N予備校", "POSSE課題"], 
+      //データ項目のラベル
+      // ラベルを消してHTMLCSSで調整する
       datasets: [{
           backgroundColor: [
-            "#0345ec",
-            "#0f71bd",
-            "#20bdde",
-            "#3cccefe"
+              "#0345ec",
+              "#0f71bd",
+              "#20bdde",
+              "#3ccefe"
           ],
-          data: [45, 32, 18, 5] ,
-          //グラフのデータ
-          // plugins: [dataLabelPlugin]
+          data: [45, 32, 18, 5] //グラフのデータ
       }]
     },
     options: {
-      legend: {
-        position: 'bottom',
-      },
       title: {
         display: true,
+
         //グラフタイトル
-        text: '新法案賛否'
-      }
+      },
+      legend:{
+        display:false
+      },
+      responsive: false,
+      // tooltips: {
+      //   callbacks: {
+      //     label: function (tooltipItem, data) {
+      //       return data.labels[tooltipItem.index]
+      //         + ": "
+      //         + data.datasets[0].data[tooltipItem.index]
+      //         + " %"; //ここで単位を付けます
+      //     }
+      //   }
+      // }
+        plugins: {
+            datalabels: {
+                color: '#000',
+                font: {
+                    weight: 'bold',
+                    size: 20,
+                },
+                formatter: (value) => {
+                    return value + '%';
+                }
+            }
+        }
     }
-    });
-
-
+  });
 
 
 //  モーダルローディング

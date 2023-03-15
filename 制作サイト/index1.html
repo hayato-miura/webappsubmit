@@ -7,6 +7,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="./style/reset.css">
     <link rel="stylesheet" href="./style/style.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&family=Noto+Sans+JP:wght@300;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels" defer></script>
@@ -44,27 +48,27 @@
                 <div class="upside">
                     <div class="modal__left">
                         <div class="study__date">
-                            学習日
+                            <p class="modal__subheading">学習日</p>
                             <!-- 学習日カレンダー -->
                             <div>
                                 <label class="date-edit"><input type="date" value="2019-08-22" /></label>
                             </div>
                         </div>
                         <div class="study__contents">
-                            学習コンテンツ(複数選択可)
+                            <p class="modal__subheading">学習コンテンツ(複数選択可)</p>
                             <div class="che">
                                 <div class="check__btn__list__box">
-                                    <label class="ECM_CheckboxInput"><input class="ECM_CheckboxInput-Input" type="checkbox"><span class="ECM_CheckboxInput-DummyInput"></span><span class="ECM_CheckboxInput-LabelText">N予備校</span></label>
+                                    <label class="ECM_CheckboxInput"><input class="ECM_CheckboxInput-Input" type="checkbox"><span class="ECM_CheckboxInput-DummyInput"></span><span class="ECM_CheckboxInput-LabelText">ドットインストール</span></label>
                                 </div>
                                 <div class="check__btn__list__box">
                                     <label class="ECM_CheckboxInput"><input class="ECM_CheckboxInput-Input" type="checkbox"><span class="ECM_CheckboxInput-DummyInput"></span><span class="ECM_CheckboxInput-LabelText">N予備校</span></label>
                                 </div>
                                 <div class="check__btn__list__box">
-                                    <label class="ECM_CheckboxInput"><input class="ECM_CheckboxInput-Input" type="checkbox"><span class="ECM_CheckboxInput-DummyInput"></span><span class="ECM_CheckboxInput-LabelText">N予備校</span></label>
+                                    <label class="ECM_CheckboxInput"><input class="ECM_CheckboxInput-Input" type="checkbox"><span class="ECM_CheckboxInput-DummyInput"></span><span class="ECM_CheckboxInput-LabelText">POSSE課題</span></label>
                                 </div>
                                                         </div>
                             </div>
-                        <div class="study__lang">学習言語(複数選択可)</div>
+                        <div class="study__lang"><p class="modal__subheading">学習言語(複数選択可)</p></div>
                         <div class="check__btn__list__box">
                             <label class="ECM_CheckboxInput"><input class="ECM_CheckboxInput-Input" type="checkbox"><span class="ECM_CheckboxInput-DummyInput"></span><span class="ECM_CheckboxInput-LabelText">HTML</span></label>
                         </div>
@@ -77,16 +81,16 @@
                     </div>
                     <div class="modal__right">
                         <div class="study__time">
-                            学習時間
+                            <p class="modal__subheading">学習時間</p>
                             <form action="#" method="post">
                                 <div class="comment__form"><input type="number" placeholder="数字を入力" required></div>
                             </form>
                         </div>
                         <div class="study__twitter__comment">
-                            Twitter用コメント
+                            <p class="modal__subheading">Twitter用コメント</p>
                             <form action="#" method="post" class="comment__form">
                                 
-                                <textarea name="comment" placeholder="コメントを入力" rows="4" cols="20" id="content"></textarea>
+                                <textarea name="comment" placeholder="コメントを入力" rows="15" cols="35" id="content"></textarea>
                             </form>
                         </div>
                         <div class="twitter__share" id="twitter__share">
@@ -152,7 +156,7 @@
                     <!-- 学習時間のグラフ -->
                     <div class="study__hour__graph">
                         <div class="container" style="width:100%" align='center'>
-                            <canvas id="canvas"></canvas>
+                            <canvas id="canvas" class="bar"></canvas>
                         </div>
                     </div>
                 </div>
@@ -177,13 +181,19 @@
                     </div>
                     <!-- 学習コンテンツのセクション -->
                     <div class=" contents__box study__contents">
-                        <div class="subheading">学習言語</div>
+                        <div class="subheading">学習コンテンツ</div>
                         <div class="pie__chart">
                             <!-- 2個目の円グラフはid名を変えてまた同様に作成すればいい -->
                             <canvas id="myDoughnutChart2">
                             </canvas>
                         </div>
-                        <div class="study__content__list">リスト部分</div>
+                        <div class="study__content__list">
+                            <ul class="study__content__list">
+                                <li><span></span> ドットインストール</li>
+                                <li><span></span> N予備校</li>
+                                <li><span></span> POSSE課題</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <!-- 学習言語と学習コンテンツのセクション ここまで-->
@@ -192,7 +202,8 @@
     </div>
 <!-- フッターここから -->
     <footer class="footer">
-        <p>2020年10月</p>
+
+        <div class="main__data"><button class="data__button">＜</button><p>2020年10月</p> <button class="data__button">＞</button></div>
     </footer>
     <!-- フッターここまで -->
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
