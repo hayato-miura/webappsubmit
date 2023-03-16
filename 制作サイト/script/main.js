@@ -58,7 +58,37 @@ var barChartData = {
 
 
 //   学習コンテンツドーナツグラフ
-
+// プラグイン関数の定義
+var dataLabelPlugin = {
+  afterDatasetsDraw: function (chart) {
+    var ctx = chart.ctx;
+    chart.data.datasets.forEach(function (dataset, 系列) {
+      var meta = chart.getDatasetMeta(系列);
+      if (!meta.hidden) {
+        meta.data.forEach(function (element, 要素) {
+          // ステップ１　数値を文字列に変換
+          // dataSum += dataset.data[要素];
+          // var ratio = dataset.data[要素]/dataSum*100;
+          // var dataString = ratio.toString();
+          var dataString = dataset.data[要素].toString();
+          // ステップ２　文字列の書体
+          ctx.fillStyle = "#fff";            // 色　'rgb(0, 0, 0)', 'rgba(192, 80, 77, 0.7)'
+          var fontSize = 14;                  // サイズ
+          var fontStyle = "normal";           // 書体 "bold", "italic"
+          // var fontFamily = "serif";           // フォントの種類 "sans-serif", "ＭＳ 明朝"
+          ctx.font = Chart.helpers.fontString(fontSize, fontStyle);
+          // ステップ３　文字列の位置の基準点
+          ctx.textAlign = 'center';           // 文字列　start, end, left, right, center
+          ctx.textBaseline = 'middle';        // 文字高　middle, top, bottom
+          // ステップ４　文字列のグラフでの位置
+          var padding = 5;                   // 点と文字列の距離
+          var position = element.tooltipPosition(); //文字列の表示　 fillText(文字列, Ｘ位置, Ｙ位置)
+          ctx.fillText(dataString + '%', position.x, position.y - (fontSize / 2) - padding);
+        });
+      }
+    });
+  }
+};
 
 
   var ctx = document.getElementById("myDoughnutChart1");
@@ -78,6 +108,8 @@ var barChartData = {
           data: [45, 32, 18, 5] //グラフのデータ
       }]
     },
+    plugins: [dataLabelPlugin],
+
     options: {
       title: {
         display: false,
@@ -88,29 +120,18 @@ var barChartData = {
         display:false
       },
       responsive: true,
-      // tooltips: {
-      //   callbacks: {
-      //     label: function (tooltipItem, data) {
-      //       return data.labels[tooltipItem.index]
-      //         + ": "
-      //         + data.datasets[0].data[tooltipItem.index]
-      //         + " %"; //ここで単位を付けます
-      //     }
-      //   }
-      // }
-        plugins: {
-            datalabels: {
-                color: '#000',
-                font: {
-                    weight: 'bold',
-                    size: 20,
-                },
-                formatter: (value) => {
-                    return value + '%';
-                }
-            }
+      tooltips: {
+        callbacks: {
+          label: function (tooltipItem, data) {
+            return data.labels[tooltipItem.index]
+              + ": "
+              + data.datasets[0].data[tooltipItem.index]
+              + " %"; //ここで単位を付けます
+          }
         }
-    }
+      }
+      
+    },
   });
 
 
@@ -128,9 +149,11 @@ var barChartData = {
               "#20bdde",
               "#3ccefe"
           ],
-          data: [45, 32, 18, 5] //グラフのデータ
+          data: [30,30,40] //グラフのデータ
       }]
     },
+    plugins: [dataLabelPlugin],
+
     options: {
       title: {
         display: false,
@@ -141,29 +164,18 @@ var barChartData = {
         display:false
       },
       responsive: true,
-      // tooltips: {
-      //   callbacks: {
-      //     label: function (tooltipItem, data) {
-      //       return data.labels[tooltipItem.index]
-      //         + ": "
-      //         + data.datasets[0].data[tooltipItem.index]
-      //         + " %"; //ここで単位を付けます
-      //     }
-      //   }
-      // }
-        plugins: {
-            datalabels: {
-                color: '#000',
-                font: {
-                    weight: 'bold',
-                    size: 20,
-                },
-                formatter: (value) => {
-                    return value + '%';
-                }
-            }
+      tooltips: {
+        callbacks: {
+          label: function (tooltipItem, data) {
+            return data.labels[tooltipItem.index]
+              + ": "
+              + data.datasets[0].data[tooltipItem.index]
+              + " %"; //ここで単位を付けます
+          }
         }
-    }
+      }
+      
+    },
   });
 
 
