@@ -647,6 +647,8 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     }
     .container{
         width: fit-content;
+        position: relative;
+        width: 364px;
     }
     
     /* 学習言語と学習コンテンツ */
@@ -686,5 +688,9 @@ input[type="date"]::-webkit-calendar-picker-indicator{
         font-size: 40px;
         color: #fff;
         cursor: pointer;
+    }
+
+    .container.active{
+        display: none;
     }
 }
